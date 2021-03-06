@@ -1,0 +1,3 @@
+# training-project
+
+> JavaScript
