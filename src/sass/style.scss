@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 .header {
@@ -34,12 +34,12 @@
         }
       }
       &:after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 2px;
         right: 10px;
-        background: url("../icons/search.svg") center (center / cover) no-repeat;
+        background: url('../icons/search.svg') center (center / cover) no-repeat;
         width: 24px;
         height: 24px;
       }
@@ -84,7 +84,7 @@
   }
   &__bg {
     height: 360px;
-    background: url("../img/mars.webp") center (center / cover) no-repeat;
+    background: url('../img/mars.webp') center (center / cover) no-repeat;
     background-position: top;
     padding: 107px 0 0 61px;
   }
@@ -133,7 +133,7 @@
       line-height: 28px;
       color: #000000;
       &:after {
-        content: "";
+        content: '';
         display: block;
         width: 33%;
         height: 2px;
@@ -165,10 +165,10 @@
         transform: translateY(-50%);
         width: 20px;
         height: 20px;
-        background: url("../icons/Star.svg") center (center / cover) no-repeat;
+        background: url('../icons/Star.svg') center (center / cover) no-repeat;
       }
       &:before {
-        content: "";
+        content: '';
         position: absolute;
         bottom: -5px;
         display: block;
@@ -178,7 +178,7 @@
       }
       &:hover {
         .delete {
-          content: "";
+          content: '';
           display: block;
           position: absolute;
           right: 0px;
@@ -186,8 +186,7 @@
           transform: translateY(-50%);
           width: 20px;
           height: 20px;
-          background: url("../icons/trash.png") center (center / cover)
-            no-repeat;
+          background: url('../icons/trash.png') center (center / cover) no-repeat;
           cursor: pointer;
         }
       }
@@ -208,7 +207,7 @@
         display: inline;
         margin-left: 10px;
       }
-      input[type="text"] {
+      input[type='text'] {
         width: 270px;
         height: 45px;
         line-height: 50px;
