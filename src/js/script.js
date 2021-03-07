@@ -10,19 +10,15 @@ const movieDB = {
   ]
 };
 
-// task 1
 const promoAdv = document.querySelector('.promo__adv');
 promoAdv.remove();
 
-// task 2
 const promoGenre = document.querySelector('.promo__genre');
 promoGenre.textContent = 'ДРАМА';
 
-// task 3
 const promoBg = document.querySelector('.promo__bg');
 promoBg.style.backgroundImage = 'url(./img/bg.jpg)';
 
-// task 4 && 5
 const movieList = document.querySelector('.promo__interactive-list');
 movieList.innerHTML = '';
 
