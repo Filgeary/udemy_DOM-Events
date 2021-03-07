@@ -34,11 +34,19 @@ promoGenre.textContent = 'ДРАМА';
 
 // task 3
 const promoBg = document.querySelector('.promo__bg');
-promoBg.style.cssText = 'background: url(./img/bg.jpg) center center/cover no-repeat';
+promoBg.style.backgroundImage = 'url(./img/bg.jpg)';
 
 // task 4 && 5
-const promoItems = document.querySelectorAll('.promo__interactive-item');
-const sortedMovies = movieDB.movies.sort();
-promoItems.forEach((item, i) => {
-  item.textContent = `${i + 1} ` + sortedMovies[i];
+const movieList = document.querySelector('.promo__interactive-list');
+movieList.innerHTML = '';
+
+const sortedMovies = Array.from(movieDB.movies).sort();
+
+sortedMovies.forEach((movie, index) => {
+  movieList.innerHTML += `
+    <li class="promo__interactive-item">
+      ${index + 1} ${movie}
+      <div class="delete"></div>
+    </li>
+  `;
 });
