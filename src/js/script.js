@@ -31,3 +31,7 @@ promoAdv.remove();
 // task 2
 const promoGenre = document.querySelector('.promo__genre');
 promoGenre.textContent = 'ДРАМА';
+
+// task 3
+const promoBg = document.querySelector('.promo__bg');
+promoBg.style.cssText = 'background: url(./img/bg.jpg) center center/cover no-repeat';
