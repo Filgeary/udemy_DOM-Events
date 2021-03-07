@@ -27,3 +27,7 @@ const movieDB = {
 // task 1
 const promoAdv = document.querySelector('.promo__adv');
 promoAdv.remove();
+
+// task 2
+const promoGenre = document.querySelector('.promo__genre');
+promoGenre.textContent = 'ДРАМА';
