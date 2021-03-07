@@ -23,3 +23,7 @@ const movieDB = {
     'Скотт Пилигрим против...'
   ]
 };
+
+// task 1
+const promoAdv = document.querySelector('.promo__adv');
+promoAdv.remove();
