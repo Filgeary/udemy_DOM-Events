@@ -36,9 +36,9 @@ promoGenre.textContent = 'ДРАМА';
 const promoBg = document.querySelector('.promo__bg');
 promoBg.style.cssText = 'background: url(./img/bg.jpg) center center/cover no-repeat';
 
-// task 4
+// task 4 && 5
 const promoItems = document.querySelectorAll('.promo__interactive-item');
 const sortedMovies = movieDB.movies.sort();
 promoItems.forEach((item, i) => {
-  item.textContent = sortedMovies[i];
+  item.textContent = `${i + 1} ` + sortedMovies[i];
 });
