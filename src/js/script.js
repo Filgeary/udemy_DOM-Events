@@ -33,7 +33,12 @@ const inputAdd = form.querySelector('.adding__input');
 
 btnSubmit.addEventListener('click', (evt) => {
     evt.preventDefault();
-    movieDB.movies.push(inputAdd.value);
+    let inputAddFilm = inputAdd.value;
+
+    if (inputAddFilm.length > 21) {
+        inputAddFilm = inputAddFilm.slice(0, 21) + '...';
+    }
+    movieDB.movies.push(inputAddFilm);
     sortMovies();
 });
 
