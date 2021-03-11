@@ -1,3 +1,5 @@
-# training-project
+# mini-training-project
 
-> JavaScript
+> my code is only JavaScript
+
+DOM, Events
