@@ -27,6 +27,16 @@ const movieDB = {
     ]
 };
 
+const form = document.querySelector('.add');
+const btnSubmit = form.querySelector('button');
+const inputAdd = form.querySelector('.adding__input');
+
+btnSubmit.addEventListener('click', (evt) => {
+    evt.preventDefault();
+    movieDB.movies.push(inputAdd.value);
+    sortMovies();
+});
+
 const advBlocks = document.querySelectorAll('.promo__adv img');
 advBlocks.forEach((adv) => adv.remove());
 
@@ -36,16 +46,19 @@ promoGenre.textContent = 'ДРАМА';
 const promoBg = document.querySelector('.promo__bg');
 promoBg.style.backgroundImage = 'url(./img/bg.jpg)';
 
-const movieList = document.querySelector('.promo__interactive-list');
-movieList.innerHTML = '';
+function sortMovies() {
+    const movieList = document.querySelector('.promo__interactive-list');
+    movieList.innerHTML = '';
 
-const sortedMovies = Array.from(movieDB.movies).sort();
+    const sortedMovies = Array.from(movieDB.movies).sort();
 
-sortedMovies.forEach((movie, index) => {
-    movieList.innerHTML += `
+    sortedMovies.forEach((movie, index) => {
+        movieList.innerHTML += `
         <li class="promo__interactive-item">
             ${index + 1} ${movie}
             <div class="delete"></div>
         </li>
     `;
-});
+    });
+}
+sortMovies();
