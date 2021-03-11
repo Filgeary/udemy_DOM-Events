@@ -17,53 +17,84 @@ P.S. Здесь есть несколько вариантов решения з
 
 'use strict';
 
-const movieDB = {
-    movies: [
-        'Логан',
-        'Лига справедливости',
-        'Ла-ла Ленд',
-        'Одержимость',
-        'Скотт Пилигрим против...'
-    ]
-};
+document.addEventListener('DOMContentLoaded', () => {
+    const movieDB = {
+        movies: [
+            'Логан',
+            'Лига справедливости',
+            'Ла-ла Ленд',
+            'Одержимость',
+            'Скотт Пилигрим против...'
+        ]
+    };
 
-const form = document.querySelector('.add');
-const btnSubmit = form.querySelector('button');
-const inputAdd = form.querySelector('.adding__input');
-
-btnSubmit.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    let inputAddFilm = inputAdd.value;
-
-    if (inputAddFilm.length > 21) {
-        inputAddFilm = inputAddFilm.slice(0, 21) + '...';
-    }
-    movieDB.movies.push(inputAddFilm);
-    sortMovies();
-});
-
-const advBlocks = document.querySelectorAll('.promo__adv img');
-advBlocks.forEach((adv) => adv.remove());
-
-const promoGenre = document.querySelector('.promo__genre');
-promoGenre.textContent = 'ДРАМА';
-
-const promoBg = document.querySelector('.promo__bg');
-promoBg.style.backgroundImage = 'url(./img/bg.jpg)';
-
-function sortMovies() {
+    const advBlocks = document.querySelectorAll('.promo__adv img');
+    const poster = document.querySelector('.promo__bg');
+    const genre = document.querySelector('.promo__genre');
     const movieList = document.querySelector('.promo__interactive-list');
-    movieList.innerHTML = '';
+    const addForm = document.querySelector('form.add');
+    const addInput = addForm.querySelector('.adding__input');
+    const checkbox = addForm.querySelector('[type="checkbox"]');
 
-    const sortedMovies = Array.from(movieDB.movies).sort();
+    addForm.addEventListener('submit', (evt) => {
+        evt.preventDefault();
 
-    sortedMovies.forEach((movie, index) => {
-        movieList.innerHTML += `
-        <li class="promo__interactive-item">
-            ${index + 1} ${movie}
-            <div class="delete"></div>
-        </li>
-    `;
+        let newFilm = addInput.value;
+        const isFavoriteFilm = checkbox.checked;
+
+        if (newFilm) {
+            if (newFilm.length > 21) {
+                newFilm = `${newFilm.slice(0, 21)}...`;
+            }
+
+            if (isFavoriteFilm) {
+                console.log(`Add Favorite Movie`);
+            }
+
+            movieDB.movies.push(newFilm);
+            createMovieList(movieDB.movies, movieList);
+        }
+
+        evt.target.reset();
     });
-}
-sortMovies();
+
+    const deleteAdv = (arr) => {
+        arr.forEach((adv) => adv.remove());
+    };
+
+    const makeChanges = () => {
+        genre.textContent = 'DRAMA';
+        poster.style.backgroundImage = 'url(./img/bg.jpg)';
+    };
+
+    const sortArr = (arr) => {
+        arr.sort();
+    };
+
+    function createMovieList(films, parent) {
+        parent.innerHTML = '';
+        sortArr(films);
+
+        films.forEach((movie, index) => {
+            parent.innerHTML += `
+                <li class="promo__interactive-item">
+                    ${index + 1} ${movie}
+                    <div class="delete"></div>
+                </li>
+            `;
+        });
+
+        document.querySelectorAll('.delete').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                films.splice(i, 1);
+
+                createMovieList(films, parent);
+            });
+        });
+    }
+
+    deleteAdv(advBlocks);
+    makeChanges();
+    createMovieList(movieDB.movies, movieList);
+});
