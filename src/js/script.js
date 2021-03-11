@@ -10,8 +10,8 @@ const movieDB = {
     ]
 };
 
-const promoAdv = document.querySelector('.promo__adv');
-promoAdv.remove();
+const advBlocks = document.querySelectorAll('.promo__adv img');
+advBlocks.forEach((adv) => adv.remove());
 
 const promoGenre = document.querySelector('.promo__genre');
 promoGenre.textContent = 'ДРАМА';
